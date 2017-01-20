@@ -12,9 +12,10 @@ This debug page permits monitoring of tracking events by a Tealium device integr
 
 1. Start your mobile application.
 2. Open the debug.html page in a browser.
-3. Enter the host (ip address) and port info at the top of the debug app, and click the "connect" button.
+3. Enter the host (ip address), port, and passkey info at the top of the debug app, and click the "connect" button.
 4. Use the mobile app to trigger events. They should appear in the debug app.
 
+- Note: The passkey must be set in the Debug module of the mobile app to monitor.
 -----------------------
 
 # Dummy server
@@ -54,6 +55,8 @@ the error message will be used as the title of the event in the UI.
 Use of this software is subject to the terms and conditions of the license agreement contained in the file titled "LICENSE.txt".  Please read the license before downloading or using any of the files contained in this repository. By downloading or using any of these files, you are agreeing to be bound by and comply with the license agreement.
 
 ## Change Log
+- 1.1.0 Security upgrade
+	- Connections now require a passkey
 - 1.0.0 Initial Release
 	- Library configuration reporting
 	- Tracking data reporting

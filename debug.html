@@ -104,6 +104,12 @@
             <label class="mdl-textfield__label" style="color: white" for="port-input">Port:</label>
           </div>
 
+         <!-- Passkey input -->
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input id="passkey-input" class="mdl-textfield__input" style="background-color: #aaa" type="password">
+            <label class="mdl-textfield__label" style="color: white" for="passkey-input">Passkey:</label>
+          </div>
+
           <!-- Connect button -->
           <button id="connect-button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
             Connect
@@ -299,6 +305,7 @@
       var connect_button = document.getElementById("connect-button");
       var host_input = document.getElementById("host-input");
       var port_input = document.getElementById("port-input");
+      var passkey_input = document.getElementById("passkey-input");
       var events_container = document.getElementById("events-container");
 
       // use last successful connection info if it exists
@@ -309,6 +316,8 @@
       if(localStorage.getItem('port')) {
         port_input.value = localStorage.getItem('port');
       }
+
+      // DO NOT store passkey
 
       // Events are numbered in the UI to help give them an identity.
       // Therefore we should track the number of events.
@@ -375,7 +384,8 @@
         try {
           var host = host_input.value;
           var port = port_input.value;
-          var url = "ws://" + host + ":" + port;
+          var pass = passkey_input.value;
+          var url = "ws://" + host + ":" + port + "/" + pass;
 
           console.log("connecting to " + url);
           var socket = new WebSocket(url);
